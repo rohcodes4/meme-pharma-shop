@@ -5,32 +5,32 @@
 
 @layer base {
   :root {
-    --background: 10 10% 3%;
+    --background: 5 5% 2%;
     --foreground: 0 0% 98%;
 
-    --card: 10 10% 6%;
+    --card: 8 8% 6%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 10 10% 6%;
+    --popover: 8 8% 6%;
     --popover-foreground: 0 0% 98%;
 
     --primary: 142 100% 50%;
     --primary-foreground: 0 0% 0%;
 
-    --secondary: 10 10% 15%;
+    --secondary: 8 8% 15%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 10 10% 15%;
+    --muted: 8 8% 15%;
     --muted-foreground: 0 0% 70%;
 
-    --accent: 10 10% 15%;
+    --accent: 8 8% 15%;
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 10 10% 20%;
-    --input: 10 10% 20%;
+    --border: 8 8% 20%;
+    --input: 8 8% 20%;
     --ring: 142 100% 50%;
 
     --radius: 0.75rem;
@@ -44,21 +44,103 @@
 
   body {
     @apply bg-crypto-dark text-foreground font-sans;
-    background-image: radial-gradient(circle at 25% 25%, rgba(0, 255, 136, 0.05) 0%, transparent 50%), 
-                      radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+    background-image: 
+      radial-gradient(circle at 20% 20%, rgba(0, 255, 136, 0.08) 0%, transparent 50%), 
+      radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 40% 60%, rgba(236, 72, 153, 0.04) 0%, transparent 50%);
     background-attachment: fixed;
   }
 
   .crypto-card {
-    @apply bg-gradient-to-br from-crypto-dark to-gray-900 border border-gray-800 rounded-xl backdrop-blur-sm;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    @apply bg-gradient-to-br from-crypto-dark via-gray-900 to-gray-800 border border-gray-700 rounded-xl backdrop-blur-sm relative overflow-hidden;
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  .crypto-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.3), transparent);
   }
 
   .crypto-button {
-    @apply bg-gradient-to-r from-crypto-green to-crypto-green-light text-black font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-crypto-green/25 hover:scale-105;
+    @apply bg-gradient-to-r from-crypto-green via-green-400 to-crypto-green text-black font-bold py-4 px-8 rounded-lg transition-all duration-300 hover:shadow-2xl hover:shadow-crypto-green/30 hover:scale-105 relative overflow-hidden;
+    box-shadow: 
+      0 4px 15px rgba(0, 255, 136, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .crypto-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+  }
+
+  .crypto-button:hover::before {
+    left: 100%;
   }
 
   .crypto-input {
-    @apply bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-crypto-green focus:ring-2 focus:ring-crypto-green/20 transition-all;
+    @apply bg-gray-900/60 border border-gray-600 rounded-lg px-6 py-4 text-white placeholder-gray-400 focus:border-crypto-green focus:ring-2 focus:ring-crypto-green/30 transition-all backdrop-blur-sm;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .crypto-input:focus {
+    box-shadow: 
+      inset 0 2px 4px rgba(0, 0, 0, 0.3),
+      0 0 0 3px rgba(0, 255, 136, 0.1);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { 
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% { 
+      transform: translateY(-15px) rotate(1deg);
+    }
+  }
+
+  .bg-crypto-gradient {
+    background: linear-gradient(135deg, #00ff88 0%, #8b5cf6 50%, #ec4899 100%);
+  }
+
+  /* Enhanced glow effects */
+  .glow-green {
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+  }
+
+  .glow-pink {
+    box-shadow: 0 0 20px rgba(236, 72, 153, 0.4);
+  }
+
+  /* Improved spacing utilities */
+  .section-padding {
+    @apply py-20 px-4;
+  }
+
+  .container-spacing {
+    @apply mx-auto max-w-7xl px-4;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-crypto-green via-purple-400 to-pink-400 bg-clip-text text-transparent;
   }
 }

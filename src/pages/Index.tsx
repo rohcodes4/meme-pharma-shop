@@ -5,85 +5,174 @@ import { products } from '../data/products';
 import ProductCard from '../components/ProductCard';
 import Header from '../components/Header';
 import { Button } from '../components/ui/button';
+import { Card, CardContent } from '../components/ui/card';
 
 const Index = () => {
   const featuredProducts = products.slice(0, 3);
+
+  const testimonials = [
+    {
+      name: "DegenerateApe420",
+      handle: "@DegenApe420",
+      text: "Chadcaine got me through a 96-hour chart watching session. Caught a 50x on $PEPE. This stuff is pure alpha fuel! 🚀",
+      avatar: "🦍"
+    },
+    {
+      name: "DiamondHandsOnly",
+      handle: "@DiamondHands",
+      text: "Wojakatin saved me from panic selling during the last crash. Turned my paper hands into pure diamond. Never selling again! 💎🙌",
+      avatar: "💎"
+    },
+    {
+      name: "MoonBoyMaxi",
+      handle: "@MoonBoy",
+      text: "Pepesgreens + Elon Tabs combo hit different. Made 10x on three different shitcoins in one week. This is not financial advice but... 🌙",
+      avatar: "🌙"
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-crypto-dark">
       <Header />
       
       {/* Hero Section */}
-      <section className="relative py-20 px-4 overflow-hidden">
-        <div className="absolute inset-0 bg-hero-pattern opacity-10" />
-        <div className="container mx-auto text-center relative z-10">
-          <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-crypto-gradient bg-clip-text text-transparent animate-float">
+      <section className="relative py-24 px-4 overflow-hidden">
+        <div className="absolute inset-0 bg-hero-pattern opacity-15" />
+        <div className="container mx-auto text-center relative z-10 max-w-6xl">
+          <h1 className="text-6xl md:text-8xl font-bold mb-8 bg-crypto-gradient bg-clip-text text-transparent animate-float">
             PHARMEMESY
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            The ultimate crypto trader's pharmacy. Premium supplements for diamond hands and moon missions.
+          <p className="text-xl md:text-3xl text-gray-300 mb-6 max-w-4xl mx-auto leading-relaxed">
+            The ultimate <span className="text-crypto-green font-bold">degen pharmacy</span> for crypto chads
           </p>
-          <div className="space-x-4">
+          <p className="text-lg md:text-xl text-purple-300 mb-12 max-w-3xl mx-auto">
+            Premium supplements to keep you diamond-handed through bull runs, bear markets, and 100x moonshots. 
+            <span className="text-crypto-green"> WAGMI! 🚀</span>
+          </p>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Link to="/products">
-              <Button className="crypto-button text-lg px-8 py-4">
-                Shop Now
+              <Button className="crypto-button text-xl px-12 py-6 text-black font-bold hover:shadow-2xl">
+                Start Aping 🦍
               </Button>
             </Link>
-            <Button variant="outline" className="text-lg px-8 py-4 border-crypto-green text-crypto-green hover:bg-crypto-green hover:text-black">
-              Learn More
+            <Button variant="outline" className="text-xl px-12 py-6 border-2 border-purple-500 text-purple-300 hover:bg-purple-500 hover:text-black transition-all duration-300">
+              Learn the Alpha 📈
             </Button>
           </div>
         </div>
       </section>
 
       {/* Featured Products */}
-      <section className="py-16 px-4">
-        <div className="container mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12 text-crypto-green">
-            Featured Products
+      <section className="py-20 px-4 bg-gradient-to-b from-transparent to-purple-900/20">
+        <div className="container mx-auto max-w-7xl">
+          <h2 className="text-5xl font-bold text-center mb-6 text-crypto-green">
+            Chad Tier Products
           </h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <p className="text-center text-gray-300 text-xl mb-16 max-w-2xl mx-auto">
+            Handpicked by the most alpha degens in the space 💊
+          </p>
+          <div className="grid md:grid-cols-3 gap-10">
             {featuredProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
-          <div className="text-center mt-12">
+          <div className="text-center mt-16">
             <Link to="/products">
-              <Button className="crypto-button">
-                View All Products
+              <Button className="crypto-button text-lg px-10 py-4">
+                View All Alpha Products 🔥
               </Button>
             </Link>
           </div>
         </div>
       </section>
 
+      {/* Testimonials Section */}
+      <section className="py-20 px-4 bg-gradient-to-r from-crypto-darker via-gray-900 to-crypto-darker">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-5xl font-bold text-center mb-6 text-crypto-green">
+            Degen Testimonials
+          </h2>
+          <p className="text-center text-gray-300 text-xl mb-16">
+            Real reviews from real apes who made it 🦍💎
+          </p>
+          <div className="grid md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="crypto-card border-crypto-green/30 hover:border-crypto-green/60 transition-all duration-300 hover:scale-105">
+                <CardContent className="p-8">
+                  <div className="flex items-center mb-6">
+                    <div className="text-4xl mr-4">{testimonial.avatar}</div>
+                    <div>
+                      <h4 className="font-bold text-crypto-green text-lg">{testimonial.name}</h4>
+                      <p className="text-purple-300 text-sm">{testimonial.handle}</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-300 text-lg leading-relaxed italic">
+                    "{testimonial.text}"
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Features Section */}
-      <section className="py-16 px-4 bg-gradient-to-r from-gray-900/50 to-gray-800/50">
-        <div className="container mx-auto">
-          <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div className="crypto-card p-8">
-              <div className="text-4xl mb-4">💎</div>
-              <h3 className="text-xl font-bold text-crypto-green mb-4">Diamond Hands Formula</h3>
-              <p className="text-gray-400">Specially crafted for hodlers who never sell</p>
+      <section className="py-20 px-4 bg-gradient-to-r from-purple-900/30 via-crypto-dark to-purple-900/30">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-5xl font-bold text-center mb-16 text-crypto-green">
+            Why Degens Choose Us
+          </h2>
+          <div className="grid md:grid-cols-3 gap-10">
+            <div className="crypto-card p-10 text-center hover:scale-105 transition-all duration-300 border-purple-500/30">
+              <div className="text-6xl mb-6">💎</div>
+              <h3 className="text-2xl font-bold text-crypto-green mb-6">Diamond Hands Formula</h3>
+              <p className="text-gray-300 text-lg leading-relaxed">
+                Scientifically engineered for hodlers who never sell. Even when it dumps 90%.
+              </p>
             </div>
-            <div className="crypto-card p-8">
-              <div className="text-4xl mb-4">🚀</div>
-              <h3 className="text-xl font-bold text-crypto-green mb-4">Moon Mission Ready</h3>
-              <p className="text-gray-400">Boost your trading performance to the moon</p>
+            <div className="crypto-card p-10 text-center hover:scale-105 transition-all duration-300 border-crypto-green/30">
+              <div className="text-6xl mb-6">🚀</div>
+              <h3 className="text-2xl font-bold text-crypto-green mb-6">Moon Mission Ready</h3>
+              <p className="text-gray-300 text-lg leading-relaxed">
+                Boost your aping performance to astronomical levels. Next stop: Mars.
+              </p>
             </div>
-            <div className="crypto-card p-8">
-              <div className="text-4xl mb-4">🔥</div>
-              <h3 className="text-xl font-bold text-crypto-green mb-4">Chad Energy</h3>
-              <p className="text-gray-400">Feel the power of a true crypto chad</p>
+            <div className="crypto-card p-10 text-center hover:scale-105 transition-all duration-300 border-purple-500/30">
+              <div className="text-6xl mb-6">🔥</div>
+              <h3 className="text-2xl font-bold text-crypto-green mb-6">Pure Chad Energy</h3>
+              <p className="text-gray-300 text-lg leading-relaxed">
+                Feel the unstoppable power of a true crypto gigachad. No paper hands allowed.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
+      {/* CTA Section */}
+      <section className="py-20 px-4 bg-gradient-to-r from-crypto-green/10 to-purple-500/10">
+        <div className="container mx-auto text-center max-w-4xl">
+          <h2 className="text-4xl md:text-6xl font-bold mb-8 text-crypto-green">
+            Ready to Ascend? 🚀
+          </h2>
+          <p className="text-xl text-gray-300 mb-12 leading-relaxed">
+            Join thousands of degens who've leveled up their trading game. 
+            <span className="text-purple-300"> Don't stay poor, fren.</span>
+          </p>
+          <Link to="/products">
+            <Button className="crypto-button text-2xl px-16 py-8 font-bold">
+              Let's Fucking Go! 🦍💎
+            </Button>
+          </Link>
+        </div>
+      </section>
+
       {/* Footer */}
-      <footer className="py-8 px-4 border-t border-gray-800">
-        <div className="container mx-auto text-center text-gray-400">
-          <p>&copy; 2024 PHARMEMESY. All rights reserved. WAGMI 🚀</p>
+      <footer className="py-12 px-4 border-t border-gray-800 bg-crypto-darker">
+        <div className="container mx-auto text-center">
+          <p className="text-gray-400 text-lg">
+            &copy; 2024 PHARMEMESY. All rights reserved. 
+            <span className="text-crypto-green"> WAGMI 🚀 Not financial advice, just pure alpha.</span>
+          </p>
         </div>
       </footer>
     </div>
