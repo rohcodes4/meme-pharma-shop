@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -52,16 +53,20 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-				}
+				crypto: {
+					dark: '#0a0a0a',
+					darker: '#050505',
+					green: '#00ff88',
+					'green-light': '#4ade80',
+					purple: '#8b5cf6',
+					blue: '#3b82f6',
+					pink: '#ec4899',
+				},
+			},
+			backgroundImage: {
+				'crypto-gradient': 'linear-gradient(135deg, #00ff88 0%, #8b5cf6 100%)',
+				'crypto-gradient-dark': 'linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%)',
+				'hero-pattern': 'radial-gradient(circle at 25% 25%, #00ff88 0%, transparent 50%), radial-gradient(circle at 75% 75%, #8b5cf6 0%, transparent 50%)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +89,21 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				'glow': {
+					'0%, 100%': { boxShadow: '0 0 20px rgba(0, 255, 136, 0.3)' },
+					'50%': { boxShadow: '0 0 40px rgba(0, 255, 136, 0.6)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 3s ease-in-out infinite',
+				'glow': 'glow 2s ease-in-out infinite alternate'
 			}
 		}
 	},
