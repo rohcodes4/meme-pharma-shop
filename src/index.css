@@ -105,12 +105,25 @@
     animation: float 6s ease-in-out infinite;
   }
 
+  .animate-scroll {
+    animation: scroll 30s linear infinite;
+  }
+
   @keyframes float {
     0%, 100% { 
       transform: translateY(0px) rotate(0deg);
     }
     50% { 
       transform: translateY(-15px) rotate(1deg);
+    }
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-33.333%);
     }
   }
 

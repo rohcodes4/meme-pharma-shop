@@ -1,8 +1,8 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { products } from '../data/products';
 import ProductCard from '../components/ProductCard';
+import PopularProductsTicker from '../components/PopularProductsTicker';
 import Header from '../components/Header';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
@@ -61,6 +61,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Popular Products Ticker */}
+      <PopularProductsTicker />
 
       {/* Featured Products */}
       <section className="py-20 px-4 bg-gradient-to-b from-transparent to-purple-900/20">

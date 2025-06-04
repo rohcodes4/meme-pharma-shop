@@ -41,5 +41,25 @@ export const products: Product[] = [
     category: 'Mood',
     inStock: true,
     features: ['Anti-Rekt Protection', 'Chad Wojak Mode', 'Infinite Hopium Supply', 'WAGMI Energy Boost']
+  },
+  {
+    id: '5',
+    name: 'Trenchant',
+    description: 'Sharp-minded degen fuel for spotting rugpulls before they happen. Cut through the noise and FUD with laser precision. For those who separate wheat from chaff in the meme coin trenches.',
+    price: 88.88,
+    image: 'https://images.unsplash.com/photo-1535268647677-300dbf3d78d1?w=500&h=500&fit=crop',
+    category: 'Cognitive',
+    inStock: true,
+    features: ['Rugpull Detection Mode', 'FUD Filter Activated', 'Sharp Mind Protocol', 'Scam Radar Enhanced']
+  },
+  {
+    id: '6',
+    name: 'MemeLean',
+    description: 'Lean into the memes, fren. Purple drank for purple gains. When you need that extra boost to diamond hand through the wildest market swings. Not for paper hands.',
+    price: 111.11,
+    image: 'https://images.unsplash.com/photo-1501286353178-1ec881214838?w=500&h=500&fit=crop',
+    category: 'Energy',
+    inStock: true,
+    features: ['Purple Gains Protocol', 'Meme Magic Infused', 'Diamond Hand Grip', 'Moon Gravity Defiance']
   }
 ];
