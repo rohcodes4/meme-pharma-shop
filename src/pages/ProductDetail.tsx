@@ -62,6 +62,7 @@ const ProductDetail = () => {
             <div>
               {/* <span className="text-crypto-green text-sm font-medium">{product.category}</span> */}
               <h1 className="text-4xl font-bold text-crypto-green mt-2">{product.name} &trade;</h1>
+              <h1 className="text-lg font-bold text-white mt-2 mb-8">{product.tagline}</h1>
               <h2 className='mt-4 text-md'>📦 Description:</h2>
               <p className="text-gray-400  text-lg leading-relaxed">
                 {product.description.split('\n').map((line, index) => (
