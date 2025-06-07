@@ -103,12 +103,12 @@ const Header = () => {
       {/* {showAuthModal && <AuthModal onClose={() => setShowAuthModal(false)} />} */}
       <div className='w-full text-center py-1 bg-primary crypto-button'>
         <p className='text-black flex justify-center items-center gap-4'>
-          CA: TBD...TBD
+          CA: 7xRE...pump
           {isCopied?(
             <img
             src={check}
             className='h-6 cursor-pointer'
-            onClick={()=>copyToClipboard("TBD...TBD")}
+            onClick={()=>copyToClipboard("7xREsfvW4ad1kXWyGPneSNibjWpACXU5cKKJnNKpump")}
             />
           ):(
             <img
@@ -119,7 +119,7 @@ const Header = () => {
               setTimeout(() => {
                 setIsCopied(false)
               }, 2000);
-              copyToClipboard("TBD...TBD");
+              copyToClipboard("7xREsfvW4ad1kXWyGPneSNibjWpACXU5cKKJnNKpump");
             }}
             />
           )}
