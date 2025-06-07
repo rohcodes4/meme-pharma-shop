@@ -47,7 +47,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           </span>
         </CardTitle>
         <CardDescription className="text-gray-400 line-clamp-2">
-          {product.description}
+          {product.tagline}
         </CardDescription>
       </CardHeader>
       
