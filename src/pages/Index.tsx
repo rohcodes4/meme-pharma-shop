@@ -232,7 +232,7 @@ const Index = () => {
       <footer className="py-12 px-4 border-t border-gray-800 bg-crypto-darker">
         <div className="container mx-auto text-center">
           <p className="text-gray-400 text-lg">
-            &copy; 2024 Pharmemecy. All rights reserved. 
+            &copy; 2025 Pharmemecy. All rights reserved. 
             <span className="text-crypto-green"> WAGMI 🚀 Not financial advice, just pure alpha.</span>
           </p>
         </div>
