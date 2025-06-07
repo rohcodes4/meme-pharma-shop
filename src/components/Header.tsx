@@ -57,11 +57,11 @@ const Header = () => {
               className='h-8 rounded-lg object-cover bg-white'
               />
             </a>
-            <div className="relative">
+            <div className="relative !ml-1">
               <Button
                 variant="ghost"
                 size="icon"
-                className="text-gray-300 hover:text-crypto-green relative"
+                className="text-gray-300 hover:text-crypto-green relative w-auto"
                 onClick={() => setShowCartDropdown(!showCartDropdown)}
               >
                 <div className="relative">
