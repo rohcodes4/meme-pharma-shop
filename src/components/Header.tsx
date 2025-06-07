@@ -8,6 +8,8 @@ import { Button } from './ui/button';
 import AuthModal from './AuthModal';
 import CartDropdown from './CartDropdown';
 import logo from '../assets/pharmemecy-logo.png';
+// import x from '../assets/x.png';
+import x from '../assets/x.jpg';
 
 const Header = () => {
   const { user, isAuthenticated, logout } = useAuthStore();
@@ -19,7 +21,7 @@ const Header = () => {
     <header className="sticky top-0 z-50 bg-crypto-darker/90 backdrop-blur-md border-b border-gray-800">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <Link to="/" className="text-3xl font-bold bg-crypto-gradient bg-clip-text text-transparent hover:scale-105 transition-transform flex justify-center items-center gap-4">
+          <Link to="/" className="text-2xl font-bold bg-crypto-gradient bg-clip-text text-transparent hover:scale-105 transition-transform flex justify-center items-center gap-4">
             <img 
               src={logo} 
               alt="Pharmemecy logo"
@@ -45,7 +47,16 @@ const Header = () => {
             {/* <Button variant="ghost" size="icon" className="text-gray-300 hover:text-crypto-green">
               <Search className="h-5 w-5" />
             </Button> */}
-
+            <a 
+            href='https://x.com/pharmemecy?s=21'
+            target='_blank'
+            >
+              <img 
+              src={x}
+              alt="Twitter icon"
+              className='h-8 rounded-lg object-cover bg-white'
+              />
+            </a>
             <div className="relative">
               <Button
                 variant="ghost"
