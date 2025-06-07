@@ -101,19 +101,19 @@ const Header = () => {
       </div>
 
       {/* {showAuthModal && <AuthModal onClose={() => setShowAuthModal(false)} />} */}
-      <div className='w-full text-center py-2 bg-primary crypto-button'>
+      <div className='w-full text-center py-1 bg-primary crypto-button'>
         <p className='text-black flex justify-center items-center gap-4'>
           CA: TBD...TBD
           {isCopied?(
             <img
             src={check}
-            className='h-6'
+            className='h-6 cursor-pointer'
             onClick={()=>copyToClipboard("TBD...TBD")}
             />
           ):(
             <img
             src={copy}
-            className='h-4'
+            className='h-4 cursor-pointer'
             onClick={()=>{
               setIsCopied(true);
               setTimeout(() => {
