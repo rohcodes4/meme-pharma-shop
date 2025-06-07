@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { products } from '../data/products';
+import { formatNumber } from '@/lib/utils';
 
 const PopularProductsTicker = () => {
   // Create a longer array for seamless scrolling
@@ -15,7 +16,7 @@ const PopularProductsTicker = () => {
             <div key={`${product.id}-${index}`} className="flex items-center space-x-2 whitespace-nowrap">
               <span className="text-crypto-green font-bold text-lg">🔥</span>
               <span className="text-white font-semibold">{product.name}</span>
-              <span className="text-crypto-green font-bold">${product.price}</span>
+              <span className="text-crypto-green font-bold">{formatNumber(product.price)} $PHMCY</span>
               <span className="text-purple-300">•</span>
             </div>
           ))}

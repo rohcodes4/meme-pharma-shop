@@ -5,6 +5,7 @@ import { Product } from '../types';
 import { useCartStore } from '../store/cartStore';
 import { Button } from './ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
+import { formatNumber } from '@/lib/utils';
 
 interface ProductCardProps {
   product: Product;
@@ -53,7 +54,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       <CardContent>
         <div className="flex items-center justify-between mt-2">
           <span className="text-2xl font-bold text-crypto-green">
-            {product.price} $PHMCY
+            {formatNumber(product.price)} $PHMCY
           </span>
           <Button 
             onClick={handleAddToCart}

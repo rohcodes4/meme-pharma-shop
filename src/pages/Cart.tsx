@@ -5,6 +5,7 @@ import { useCartStore } from '../store/cartStore';
 import Header from '../components/Header';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
+import { formatNumber } from '@/lib/utils';
 
 const Cart = () => {
 
@@ -66,7 +67,7 @@ const Cart = () => {
                         {item.product.category}
                       </p> */}
                       <p className="text-xs font-bold mt-2">
-                      {item.product.price} $PHMCY
+                      {formatNumber(item.product.price)} $PHMCY
                       </p>
                     </div>
 
@@ -74,7 +75,7 @@ const Cart = () => {
 
                     <div className="text-right flex flex-col justify-center !mx-0">
                       <p className="text-lg font-bold text-crypto-green">
-                        ${(item.product.price * item.quantity).toFixed(2)}
+                        {formatNumber(item.product.price * item.quantity)} $PHMCY
                       </p>
                       <div className="flex items-center space-x-3 mt-4">
                       <Button
@@ -121,7 +122,7 @@ const Cart = () => {
                 <div className="space-y-3 mb-6">
                   <div className="flex justify-between">
                     <span className="text-gray-400">Subtotal</span>
-                    <span>${getTotalPrice().toFixed(2)}</span>
+                    <span>{formatNumber(getTotalPrice())} $PHMCY</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-400">Shipping</span>
@@ -130,7 +131,7 @@ const Cart = () => {
                   <div className="border-t border-gray-700 pt-3">
                     <div className="flex justify-between text-lg font-bold">
                       <span>Total</span>
-                      <span className="text-crypto-green">${getTotalPrice().toFixed(2)}</span>
+                      <span className="text-crypto-green">{formatNumber(getTotalPrice())} $PHMCY</span>
                     </div>
                   </div>
                 </div>

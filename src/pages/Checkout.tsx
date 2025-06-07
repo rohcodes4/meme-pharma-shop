@@ -7,6 +7,7 @@ import Header from '../components/Header';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import AuthModal from '../components/AuthModal';
+import { formatNumber } from '@/lib/utils';
 
 const Checkout = () => {
 
@@ -104,7 +105,7 @@ const Checkout = () => {
                     <div>
                       <h4 className="font-bold text-xl text-crypto-green">{item.product.name}</h4>
                       <p className="text-gray-300 text-lg">Quantity: <span className="text-crypto-green font-bold">{item.quantity}</span></p>
-                    <span className="font-bold text-2xl text-crypto-green">{(item.product.price * item.quantity).toFixed(2)} $PHMCY</span>
+                    <span className="font-bold text-2xl text-crypto-green">{formatNumber(item.product.price * item.quantity)} $PHMCY</span>
 
                       {/* <p className="text-purple-300 text-sm">{item.product.category} • Chad Tier</p> */}
                     </div>
@@ -118,7 +119,7 @@ const Checkout = () => {
               <div className="border-t border-gray-600 pt-6 space-y-4">
                 <div className="flex justify-between text-lg">
                   <span className="text-gray-300">Subtotal</span>
-                  <span className="text-white font-medium">{getTotalPrice().toFixed(2)} $PHMCY</span>
+                  <span className="text-white font-medium">{formatNumber(getTotalPrice())} $PHMCY</span>
                 </div>
                 <div className="flex justify-between text-lg">
                   <span className="text-gray-300">Shipping</span>
@@ -131,7 +132,7 @@ const Checkout = () => {
                 <div className="border-t border-gray-600 pt-4">
                   <div className="flex justify-between text-2xl font-bold">
                     <span className="text-white">Total</span>
-                    <span className="text-crypto-green">{getTotalPrice().toFixed(2)} $PHMCY</span>
+                    <span className="text-crypto-green">{formatNumber(getTotalPrice())} $PHMCY</span>
                   </div>
                 </div>
               </div>

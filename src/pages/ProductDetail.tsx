@@ -6,6 +6,7 @@ import { useCartStore } from '../store/cartStore';
 import Header from '../components/Header';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
+import { formatNumber } from '@/lib/utils';
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -91,7 +92,7 @@ const ProductDetail = () => {
             </div>
 
             <div className="text-3xl font-bold text-crypto-green">
-              {product.price} $PHMCY
+              {formatNumber(product.price)} $PHMCY
             </div>
 
             <div className="space-y-4">

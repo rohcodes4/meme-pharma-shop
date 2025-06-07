@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useCartStore } from '../store/cartStore';
 import { Button } from './ui/button';
 import { Card } from './ui/card';
+import { formatNumber } from '@/lib/utils';
 
 interface CartDropdownProps {
   onClose: () => void;
@@ -34,7 +35,7 @@ const CartDropdown: React.FC<CartDropdownProps> = ({ onClose }) => {
             <div className="flex-1">
               <h4 className="font-medium text-sm">{item.product.name}</h4>
               <p className="text-xs text-gray-400">
-                ${item.product.price} x {item.quantity}
+                {formatNumber(item.product.price)} $PHMCY x {item.quantity}
               </p>
             </div>
             <Button
@@ -55,7 +56,7 @@ const CartDropdown: React.FC<CartDropdownProps> = ({ onClose }) => {
         <div className="border-t border-gray-700 pt-3">
           <div className="flex justify-between items-center mb-3">
             <span className="font-medium">Total:</span>
-            <span className="text-crypto-green font-bold">${getTotalPrice().toFixed(2)}</span>
+            <span className="text-crypto-green font-bold">{formatNumber(getTotalPrice())} $PHMCY</span>
           </div>
           
           <div className="space-y-2">
