@@ -65,7 +65,7 @@ const CartDropdown: React.FC<CartDropdownProps> = ({ onClose }) => {
               </Button>
             </Link>
             <Link to="/checkout" onClick={onClose}>
-              <Button className="w-full crypto-button">
+              <Button className="w-full crypto-button mt-4">
                 Checkout
               </Button>
             </Link>

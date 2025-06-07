@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useCartStore } from '../store/cartStore';
 import Header from '../components/Header';
@@ -7,6 +7,11 @@ import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 
 const Cart = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const { items, updateQuantity, removeItem, getTotalPrice, clearCart } = useCartStore();
 
   if (items.length === 0) {
@@ -57,15 +62,21 @@ const Cart = () => {
                       <h3 className="text-xl font-semibold text-crypto-green">
                         {item.product.name}
                       </h3>
-                      <p className="text-gray-400 text-sm mt-1">
+                      {/* <p className="text-gray-400 text-sm mt-1">
                         {item.product.category}
-                      </p>
-                      <p className="text-lg font-bold mt-2">
-                        ${item.product.price}
+                      </p> */}
+                      <p className="text-xs font-bold mt-2">
+                      {item.product.price} $PHMCY
                       </p>
                     </div>
 
-                    <div className="flex items-center space-x-3">
+                    
+
+                    <div className="text-right flex flex-col justify-center !mx-0">
+                      <p className="text-lg font-bold text-crypto-green">
+                        ${(item.product.price * item.quantity).toFixed(2)}
+                      </p>
+                      <div className="flex items-center space-x-3 mt-4">
                       <Button
                         variant="outline"
                         size="sm"
@@ -74,7 +85,7 @@ const Cart = () => {
                       >
                         -
                       </Button>
-                      <span className="w-8 text-center">{item.quantity}</span>
+                      <span className="w-1 text-center">{item.quantity}</span>
                       <Button
                         variant="outline"
                         size="sm"
@@ -84,11 +95,6 @@ const Cart = () => {
                         +
                       </Button>
                     </div>
-
-                    <div className="text-right">
-                      <p className="text-lg font-bold text-crypto-green">
-                        ${(item.product.price * item.quantity).toFixed(2)}
-                      </p>
                       <Button
                         variant="ghost"
                         size="sm"

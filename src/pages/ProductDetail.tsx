@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { products } from '../data/products';
 import { useCartStore } from '../store/cartStore';
@@ -11,6 +11,10 @@ const ProductDetail = () => {
   const { id } = useParams();
   const product = products.find(p => p.id === id);
   const { addItem } = useCartStore();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   if (!product) {
     return (
@@ -55,15 +59,39 @@ const ProductDetail = () => {
           {/* Product Info */}
           <div className="space-y-6">
             <div>
-              <span className="text-crypto-green text-sm font-medium">{product.category}</span>
-              <h1 className="text-4xl font-bold text-crypto-green mt-2">{product.name}</h1>
-              <p className="text-gray-400 mt-4 text-lg leading-relaxed">
-                {product.description}
+              {/* <span className="text-crypto-green text-sm font-medium">{product.category}</span> */}
+              <h1 className="text-4xl font-bold text-crypto-green mt-2">{product.name} &trade;</h1>
+              <h2 className='mt-4 text-md'>📦 Description:</h2>
+              <p className="text-gray-400  text-lg leading-relaxed">
+                {product.description.split('\n').map((line, index) => (
+    <React.Fragment key={index}>
+      {line}
+      <br />
+    </React.Fragment>
+  ))}
+              </p>
+              <h2 className='mt-4 text-md'>🧪 Form:</h2>
+              <p className="text-gray-400  text-lg leading-relaxed">
+                {product.form.split('\n').map((line, index) => (
+    <React.Fragment key={index}>
+      {line}
+      <br />
+    </React.Fragment>
+  ))}
+              </p>
+              <h2 className='mt-4 text-md'>🥴 Use:</h2>
+              <p className="text-gray-400  text-lg leading-relaxed">
+                {product.use.split('\n').map((line, index) => (
+    <React.Fragment key={index}>
+      {line}
+      <br />
+    </React.Fragment>
+  ))}
               </p>
             </div>
 
             <div className="text-3xl font-bold text-crypto-green">
-              ${product.price}
+              {product.price} $PHMCY
             </div>
 
             <div className="space-y-4">

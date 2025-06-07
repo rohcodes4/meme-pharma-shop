@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCartStore } from '../store/cartStore';
 import { useAuthStore } from '../store/authStore';
@@ -9,16 +9,21 @@ import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card'
 import AuthModal from '../components/AuthModal';
 
 const Checkout = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const navigate = useNavigate();
   const { items, getTotalPrice, clearCart } = useCartStore();
   const { isAuthenticated } = useAuthStore();
   const [showAuthModal, setShowAuthModal] = useState(false);
 
   const handleBuy = () => {
-    if (!isAuthenticated) {
-      setShowAuthModal(true);
-      return;
-    }
+    // if (!isAuthenticated) {
+    //   setShowAuthModal(true);
+    //   return;
+    // }
 
     // Mock checkout process
     setTimeout(() => {
@@ -61,7 +66,7 @@ const Checkout = () => {
         </div>
 
         <div className="max-w-3xl mx-auto space-y-8">
-          {!isAuthenticated && (
+          {/* {!isAuthenticated && (
             <Card className="crypto-card border-yellow-500/50 glow-yellow">
               <CardContent className="p-8">
                 <div className="flex items-center justify-between">
@@ -78,7 +83,7 @@ const Checkout = () => {
                 </div>
               </CardContent>
             </Card>
-          )}
+          )} */}
 
           <Card className="crypto-card glow-green">
             <CardHeader className="pb-6">
@@ -99,19 +104,21 @@ const Checkout = () => {
                     <div>
                       <h4 className="font-bold text-xl text-crypto-green">{item.product.name}</h4>
                       <p className="text-gray-300 text-lg">Quantity: <span className="text-crypto-green font-bold">{item.quantity}</span></p>
-                      <p className="text-purple-300 text-sm">{item.product.category} • Chad Tier</p>
+                    <span className="font-bold text-2xl text-crypto-green">{(item.product.price * item.quantity).toFixed(2)} $PHMCY</span>
+
+                      {/* <p className="text-purple-300 text-sm">{item.product.category} • Chad Tier</p> */}
                     </div>
                   </div>
-                  <div className="text-right">
-                    <span className="font-bold text-2xl text-crypto-green">${(item.product.price * item.quantity).toFixed(2)}</span>
-                  </div>
+                  {/* <div className="text-right">
+                    <span className="font-bold text-2xl text-crypto-green">{(item.product.price * item.quantity).toFixed(2)} $PHMCY</span>
+                  </div> */}
                 </div>
               ))}
               
               <div className="border-t border-gray-600 pt-6 space-y-4">
                 <div className="flex justify-between text-lg">
                   <span className="text-gray-300">Subtotal</span>
-                  <span className="text-white font-medium">${getTotalPrice().toFixed(2)}</span>
+                  <span className="text-white font-medium">{getTotalPrice().toFixed(2)} $PHMCY</span>
                 </div>
                 <div className="flex justify-between text-lg">
                   <span className="text-gray-300">Shipping</span>
@@ -119,12 +126,12 @@ const Checkout = () => {
                 </div>
                 <div className="flex justify-between text-lg">
                   <span className="text-gray-300">Degen Tax</span>
-                  <span className="text-purple-300 font-bold">$0.00 (WAGMI)</span>
+                  <span className="text-purple-300 font-bold">0.00 $PHMCY (WAGMI)</span>
                 </div>
                 <div className="border-t border-gray-600 pt-4">
                   <div className="flex justify-between text-2xl font-bold">
                     <span className="text-white">Total</span>
-                    <span className="text-crypto-green">${getTotalPrice().toFixed(2)}</span>
+                    <span className="text-crypto-green">{getTotalPrice().toFixed(2)} $PHMCY</span>
                   </div>
                 </div>
               </div>
@@ -133,16 +140,20 @@ const Checkout = () => {
                 <Button 
                   onClick={handleBuy} 
                   className="w-full crypto-button text-2xl py-8 font-bold"
-                  disabled={!isAuthenticated}
+                  // disabled={!isAuthenticated}
                 >
-                  {isAuthenticated ? '🚀 Send It! (Buy Now)' : '🔒 Login to Send It'}
+                  {/* {isAuthenticated ? '🚀 Send It! (Buy Now)' : '🔒 Login to Send It'} */}
+                  🚀 Send It! (Buy Now)
                 </Button>
                 
-                {isAuthenticated && (
+                <p className="text-center text-gray-400 text-sm mt-4">
+                    💎 Diamond hands activated. No refunds needed when you're this based.
+                  </p>
+                {/* {isAuthenticated && (
                   <p className="text-center text-gray-400 text-sm mt-4">
                     💎 Diamond hands activated. No refunds needed when you're this based.
                   </p>
-                )}
+                )} */}
               </div>
             </CardContent>
           </Card>

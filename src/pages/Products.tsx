@@ -1,11 +1,15 @@
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { products } from '../data/products';
 import ProductCard from '../components/ProductCard';
 import Header from '../components/Header';
 import { Button } from '../components/ui/button';
 
 const Products = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const [filter, setFilter] = useState('all');
   const categories = ['all', ...Array.from(new Set(products.map(p => p.category)))];
 
@@ -23,7 +27,7 @@ const Products = () => {
         </h1>
         
         {/* Filter Buttons */}
-        <div className="flex flex-wrap justify-center gap-4 mb-8">
+        {/* <div className="flex flex-wrap justify-center gap-4 mb-8">
           {categories.map((category) => (
             <Button
               key={category}
@@ -34,10 +38,10 @@ const Products = () => {
               {category.charAt(0).toUpperCase() + category.slice(1)}
             </Button>
           ))}
-        </div>
+        </div> */}
 
         {/* Products Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}

@@ -25,23 +25,35 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           <img 
             src={product.image} 
             alt={product.name}
-            className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
         </div>
       </Link>
       
       <CardHeader className="pb-2">
-        <CardTitle className="text-xl text-crypto-green">{product.name}</CardTitle>
+      
+        <CardTitle className="text-xl text-crypto-green flex justify-between items-center">
+        <Link to={`/product/${product.id}`}>
+        {product.name} &trade;
+        </Link>
+        <span className={`text-xs px-2 py-1 rounded-full ${
+            product.inStock 
+              ? 'bg-green-900/30 text-green-400' 
+              : 'bg-red-900/30 text-red-400'
+          }`}>
+            {product.inStock ? 'In Stock' : 'Out of Stock'}
+          </span>
+        </CardTitle>
         <CardDescription className="text-gray-400 line-clamp-2">
           {product.description}
         </CardDescription>
       </CardHeader>
       
       <CardContent>
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between mt-2">
           <span className="text-2xl font-bold text-crypto-green">
-            ${product.price}
+            {product.price} $PHMCY
           </span>
           <Button 
             onClick={handleAddToCart}
@@ -52,7 +64,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           </Button>
         </div>
         
-        <div className="mt-2">
+        {/* <div className="mt-2">
           <span className={`text-xs px-2 py-1 rounded-full ${
             product.inStock 
               ? 'bg-green-900/30 text-green-400' 
@@ -60,7 +72,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           }`}>
             {product.inStock ? 'In Stock' : 'Out of Stock'}
           </span>
-        </div>
+        </div> */}
       </CardContent>
     </Card>
   );

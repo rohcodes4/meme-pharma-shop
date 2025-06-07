@@ -11,19 +11,19 @@ const About = () => {
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl font-bold text-center mb-8 bg-crypto-gradient bg-clip-text text-transparent">
-            About PHARMEMESY
+            About Pharmemecy
           </h1>
           
           <Card className="crypto-card mb-8">
             <CardContent className="p-8">
               <p className="text-lg text-gray-300 leading-relaxed mb-6">
-                Welcome to PHARMEMESY, the ultimate destination for crypto traders who refuse to settle for ordinary supplements. 
+                Welcome to Pharmemecy, the ultimate destination for crypto traders who refuse to settle for ordinary supplements. 
                 We understand that diamond hands require diamond-grade nutrition, and paper hands simply won't cut it in this game.
               </p>
               
               <p className="text-lg text-gray-300 leading-relaxed">
                 Our premium line of crypto-inspired supplements is specifically formulated for the modern trader. Whether you're 
-                hodling through a bear market or riding the waves to the moon, PHARMEMESY has the perfect blend to keep you sharp, 
+                hodling through a bear market or riding the waves to the moon, Pharmemecy has the perfect blend to keep you sharp, 
                 focused, and ready for anything the market throws at you.
               </p>
             </CardContent>
@@ -55,7 +55,7 @@ const About = () => {
             <CardContent className="p-8 text-center">
               <h3 className="text-2xl font-bold text-crypto-green mb-4">Join the Community</h3>
               <p className="text-gray-400 mb-6">
-                Ready to level up your trading game? Join thousands of successful traders who trust PHARMEMESY 
+                Ready to level up your trading game? Join thousands of successful traders who trust Pharmemecy 
                 to keep them sharp and focused. Remember: weak hands sell, but diamond hands hold forever.
               </p>
               <p className="text-crypto-green font-bold text-xl">WAGMI 🚀💎🙌</p>

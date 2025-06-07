@@ -10,8 +10,8 @@ interface AuthStore extends AuthState {
 
 // Mock user data for demo
 const MOCK_USERS = [
-  { id: '1', username: 'cryptotrader', email: 'trader@pharmemesy.com', password: 'password123' },
-  { id: '2', username: 'moonboy', email: 'moon@pharmemesy.com', password: 'password123' }
+  { id: '1', username: 'cryptotrader', email: 'trader@Pharmemecy.com', password: 'password123' },
+  { id: '2', username: 'moonboy', email: 'moon@Pharmemecy.com', password: 'password123' }
 ];
 
 export const useAuthStore = create<AuthStore>((set, get) => ({
@@ -24,7 +24,7 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
     if (user) {
       const { password: _, ...userWithoutPassword } = user;
       set({ user: userWithoutPassword, isAuthenticated: true });
-      localStorage.setItem('pharmemesy_user', JSON.stringify(userWithoutPassword));
+      localStorage.setItem('Pharmemecy_user', JSON.stringify(userWithoutPassword));
       return true;
     }
     return false;
@@ -38,19 +38,19 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
       email
     };
     set({ user: newUser, isAuthenticated: true });
-    localStorage.setItem('pharmemesy_user', JSON.stringify(newUser));
+    localStorage.setItem('Pharmemecy_user', JSON.stringify(newUser));
     return true;
   },
 
   logout: () => {
     set({ user: null, isAuthenticated: false });
-    localStorage.removeItem('pharmemesy_user');
+    localStorage.removeItem('Pharmemecy_user');
   }
 }));
 
 // Initialize auth state from localStorage
 if (typeof window !== 'undefined') {
-  const savedUser = localStorage.getItem('pharmemesy_user');
+  const savedUser = localStorage.getItem('Pharmemecy_user');
   if (savedUser) {
     const user = JSON.parse(savedUser);
     useAuthStore.setState({ user, isAuthenticated: true });
