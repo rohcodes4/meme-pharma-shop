@@ -10,13 +10,16 @@ import CartDropdown from './CartDropdown';
 import logo from '../assets/pharmemecy-logo.png';
 // import x from '../assets/x.png';
 import x from '../assets/x.jpg';
+import copy from '../assets/copy.png';
+import check from '../assets/check.png';
+import { copyToClipboard } from '@/lib/utils';
 
 const Header = () => {
   const { user, isAuthenticated, logout } = useAuthStore();
   const { getTotalItems } = useCartStore();
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [showCartDropdown, setShowCartDropdown] = useState(false);
-
+  const [isCopied, setIsCopied] = useState(false)
   return (
     <header className="sticky top-0 z-50 bg-crypto-darker/90 backdrop-blur-md border-b border-gray-800">
       <div className="container mx-auto px-4 py-4">
@@ -97,7 +100,32 @@ const Header = () => {
         </div>
       </div>
 
-      {showAuthModal && <AuthModal onClose={() => setShowAuthModal(false)} />}
+      {/* {showAuthModal && <AuthModal onClose={() => setShowAuthModal(false)} />} */}
+      <div className='w-full text-center py-2 bg-primary crypto-button'>
+        <p className='text-black flex justify-center items-center gap-4'>
+          CA: TBD...TBD
+          {isCopied?(
+            <img
+            src={check}
+            className='h-6'
+            onClick={()=>copyToClipboard("TBD...TBD")}
+            />
+          ):(
+            <img
+            src={copy}
+            className='h-4'
+            onClick={()=>{
+              setIsCopied(true);
+              setTimeout(() => {
+                setIsCopied(false)
+              }, 2000);
+              copyToClipboard("TBD...TBD");
+            }}
+            />
+          )}
+          
+        </p>
+      </div>
     </header>
   );
 };

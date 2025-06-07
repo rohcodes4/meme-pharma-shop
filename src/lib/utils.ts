@@ -23,3 +23,13 @@ export function formatNumber(num:number) {
 
   return num.toString(); // for numbers < 1000
 }
+
+export function copyToClipboard(text:string) {
+  navigator.clipboard.writeText(text)
+    .then(() => {
+      console.log('Copied to clipboard:', text);
+    })
+    .catch((err) => {
+      console.error('Failed to copy:', err);
+    });
+}

@@ -33,7 +33,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-crypto-dark">
-      <Header />
+      <Header />      
       
       {/* Hero Section */}
       <section className="relative py-12 px-4 overflow-hidden">
